@@ -18,6 +18,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        Log.d(TAG, "onCreate: started.");
         mLogin = findViewById(R.id.btn_login);
 
         mLogin.setOnClickListener(this);
@@ -26,10 +27,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.btn_login) {
-            Log.d(TAG, "onClick: logging in the user");
-
-//            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-
+            Log.d(TAG, "onClick: logging in the user.");
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            finish();
         }
     }
 }
